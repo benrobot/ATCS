@@ -1,6 +1,9 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+import requests
 
 
 def index(request):
-    return HttpResponse("Hello, world. You're at the CoreActivityTracker index.")
+    r = requests.get('http://httpbin.org/status/418')
+    print r.text
+    return HttpResponse('<pre>' + r.text + '</pre>')
