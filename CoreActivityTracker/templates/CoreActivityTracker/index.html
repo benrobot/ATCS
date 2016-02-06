@@ -1,0 +1,9 @@
+{% if range_of_times_to_repeat %}
+    <ul>
+    {% for time in range_of_times_to_repeat %}
+        <li>Hello # {{ time|add:"1" }}</li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No "Hello" for you.</p>
+{% endif %}

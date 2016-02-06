@@ -4,4 +4,5 @@ from . import views
 
 urlpatterns = [
     url(r'^$', views.index, name='index'),
+    url(r'^login/$', 'django.contrib.auth.views.login', name="my_login"),
 ]
