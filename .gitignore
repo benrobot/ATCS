@@ -1,6 +1,7 @@
 # Ignore local.bat because this contains local environment initializers
 local.bat
 local.bash
+.env
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
