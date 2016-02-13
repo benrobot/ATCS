@@ -1,0 +1,35 @@
+UserUnique:
+username
+password
+email
+List of references to same user
+
+
+UserHistory:
+first
+last
+change date (default null - if date is present then this is an old record)
+reference to User Unique
+
+
+UserAssociation:
+list of UserUnique references
+
+
+ActivityReport:
+reference to a UserHistory
+type (e.g. devotional, study circle, etc, including non-core activites as well)
+reference to Location
+date/time occurrence
+date/time reported
+
+Location
+label
+address 1
+address 1
+city
+state/province
+postal code
+country
+latitude
+longitude
