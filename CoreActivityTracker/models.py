@@ -2,24 +2,24 @@ from __future__ import unicode_literals
 
 from django.db import models
 
-class SpokenLanguage(models.Model)
+
+class SpokenLanguage(models.Model):
     english_name = models.CharField(max_length=50)
     iso_639_2_code = models.CharField(max_length=3)
     iso_639_1_code = models.CharField(max_length=2)
     biblio_or_term = models.CharField(max_length=1)
 
 
-
-class DeclarationStatus(models.Model)
+class DeclarationStatus(models.Model):
     BAHAI = 'BA'
     FRIEND_OF_FAITH = 'FO'
     DONT_KNOW = 'DO'
     SPECTATOR = 'SP'
     DECLARATION_STATUS_CHOICES = (
         (BAHAI, 'Baha\'i'),
-        (FRIEND_OF_FAITH = 'Friend of Faith'),
-        (DONT_KNOW = 'Don\'t know'),
-        (SPECTATOR = 'Spectator'),
+        (FRIEND_OF_FAITH, 'Friend of Faith'),
+        (DONT_KNOW, 'Don\'t know'),
+        (SPECTATOR, 'Spectator'),
     )
     declaration_status = models.CharField(
         max_length=2,
@@ -28,7 +28,7 @@ class DeclarationStatus(models.Model)
     )
 
 
-class DeclarationStatusName(models.Model)
+class DeclarationStatusName(models.Model):
     language = models.ForeignKey(
         SpokenLanguage,
         on_delete=models.CASCADE
@@ -40,14 +40,15 @@ class DeclarationStatusName(models.Model)
     name = models.CharField(max_length=35)
 
 
-class Person(models.Model)
+class Person(models.Model):
     first_name = models.CharField(max_length=35)
     last_name  = models.CharField(max_length=35)
     declaration_status_name = models.ForeignKey(
         DeclarationStatusName
     )
 
-class ActivityType(models.Model)
+
+class ActivityType(models.Model):
     DEVOTIONAL = 'DV'
     STUDY_CIRCLE = 'SC'
     ACTIVITY_TYPE_CHOICES = (
@@ -60,7 +61,7 @@ class ActivityType(models.Model)
     )
     
 
-class ActivityTypeName(models.Model)
+class ActivityTypeName(models.Model):
     language = models.ForeignKey(
         SpokenLanguage,
         on_delete=models.CASCADE
@@ -72,14 +73,14 @@ class ActivityTypeName(models.Model)
     name = models.CharField(max_length=35)
 
 
-class Country(models.Model)
-    name
-    code
-    iso_2
-    iso_3
+class Country(models.Model):
+    name = models.CharField(max_length=35)
+    code = models.CharField(max_length=3)
+    iso_2 = models.CharField(max_length=2)
+    iso_3 = models.CharField(max_length=3)
     
     
-class Location(models.Model)
+class Location(models.Model):
     label = models.CharField(max_length=35)
     address_line_1 = models.CharField(max_length=100)
     address_line_2 = models.CharField(max_length=100)

@@ -3,6 +3,9 @@ local.bat
 local.bash
 .env
 
+# Pycharm local files
+.idea
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
