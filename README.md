@@ -1,2 +1,2 @@
 # ATCS
-Area Teaching Committee Software
+Area Teaching Committee System
