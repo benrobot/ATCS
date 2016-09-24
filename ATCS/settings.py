@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'CoreActivityTracker',
     'login',
+    'rest_framework',
 ]
 
 MIDDLEWARE_CLASSES = [
