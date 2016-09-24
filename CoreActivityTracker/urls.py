@@ -16,5 +16,6 @@ router.register(r'SpokenLanguages', SpokenLanguageViewSet)
 urlpatterns = [
     url(r'^$', views.index, name='index'),
     url(r'^login/$', django_auth_views.login, name="my_login"),
+    url(r'^api/', include(router.urls)),
     url(r'^apidoc/', include('rest_framework.urls', namespace='rest_framework'))
 ]
