@@ -17,6 +17,11 @@ from django.conf.urls import include, url
 from django.contrib import admin
 from login.views import *
 from django.contrib.auth import views as django_auth_views
+from rest_framework import routers
+from CoreActivityTracker import urls as core_activity_tracker_urls
+
+router = routers.DefaultRouter()
+router.register(core_activity_tracker_urls.routers)
 
 urlpatterns = [
     url(r'^$', django_auth_views.login, {'SSL': True}),
