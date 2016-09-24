@@ -5,13 +5,13 @@ from . import views, serializers, models
 
 
 # ViewSets define the view behavior.
-class CoreActivityTrackerViewSet(viewsets.ModelViewSet):
+class SpokenLanguageViewSet(viewsets.ModelViewSet):
     queryset = models.SpokenLanguage.objects.all()
     serializer_class = serializers.SpokenLanguageSerializer
 
 # Routers provide an easy way of automatically determining the URL conf.
 router = routers.DefaultRouter()
-router.register(r'api', CoreActivityTrackerViewSet)
+router.register(r'SpokenLanguages', SpokenLanguageViewSet)
 
 urlpatterns = [
     url(r'^$', views.index, name='index'),
