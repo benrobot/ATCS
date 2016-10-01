@@ -7,7 +7,7 @@ class SpokenLanguage(models.Model):
     english_name = models.CharField(max_length=50)
     iso_639_2_code = models.CharField(max_length=3)
     iso_639_1_code = models.CharField(max_length=2)
-    biblio_or_term = models.CharField(max_length=1)
+    biblio_or_term = models.CharField(max_length=1, blank=True)
 
 
 class DeclarationStatus(models.Model):
