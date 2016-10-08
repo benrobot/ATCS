@@ -1,0 +1,24 @@
+{
+  "name": "coreactivitytracker",
+  "homepage": "https://github.com/benrobot/ATCS",
+  "authors": [
+    "Benjamin Roedell <benrobot@aol.com>"
+  ],
+  "description": "Core Activity Tracker app within ATCS django project",
+  "main": "coreactivitytracker",
+  "keywords": [
+    "core",
+    "activity"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "polymer": "^1.7.0"
+  }
+}
