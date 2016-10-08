@@ -1,6 +1,7 @@
 from django.template.loader import get_template
 from django.template import Context
 from django.shortcuts import render
+from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from django.http import HttpResponse
@@ -22,12 +23,19 @@ def index(request):
     return HttpResponse(template.render(context, request))
 
 
-@api_view(['GET'])
+@api_view(['GET', 'POST'])
 def spoken_language_collection(request):
     if request.method == 'GET':
         objects = SpokenLanguage.objects.all()
         serializer = SpokenLanguageSerializer(objects, many=True)
         return Response(serializer.data)
+    elif request.method == 'POST':
+        data = {'text': request.DATA.get('the_spoken_language')}
+        serializer = SpokenLanguageSerializer(data=data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
 @api_view(['GET'])
