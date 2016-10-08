@@ -38,13 +38,24 @@ def spoken_language_collection(request):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
-@api_view(['GET'])
+@api_view(['GET', 'DELETE', 'PUT'])
 def spoken_language_element(request, pk):
     try:
-        objects = SpokenLanguage.objects.get(pk=pk)
+        obj = SpokenLanguage.objects.get(pk=pk)
     except SpokenLanguage.DoesNotExist:
         return HttpResponse(status=404)
 
     if request.method == 'GET':
-        serializer = SpokenLanguageSerializer(objects)
+        serializer = SpokenLanguageSerializer(obj)
         return Response(serializer.data)
+
+    if request.method == 'PUT':
+        serializer = SpokenLanguageSerializer(obj, data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    if request.method == 'DELETE':
+        obj.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
