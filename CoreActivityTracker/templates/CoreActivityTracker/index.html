@@ -1,9 +1,11 @@
-{% if range_of_times_to_repeat %}
-    <ul>
-    {% for time in range_of_times_to_repeat %}
-        <li>Hello # {{ time|add:"1" }}</li>
-    {% endfor %}
-    </ul>
-{% else %}
-    <p>No "Hello" for you.</p>
-{% endif %}
+<!DOCTYPE html>
+<html>
+<head>
+    <!--<script src="bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/0.7.22/webcomponents-lite.min.js"></script>
+    <link rel="import" href="proto-element.html">
+</head>
+<body>
+<proto-element></proto-element>
+</body>
+</html>
