@@ -1,29 +1,28 @@
 <link rel="import" href="bower_components/iron-ajax/iron-ajax.html">
 
-<dom-module id="">
+<dom-module id="spoken-language-module">
     <template>
-        <template is="dom-repeat" items="[[]]">
-            <span>{{item.name}}</span>
+        <template is="dom-repeat" id="spoken-language-template" items="[[ajaxResponse.items]]">
+            <span>{{item.english_name}}</span>
         </template>
 
         <iron-ajax
-            id="requestRepos"
-            url=""
-            params='{"type":"all"}'
+            url="api/v1/spokenlanguages/"
             handle-as="json"
-            on-response="handleResponse">
+            contentType="application/json"
+            last-response="{{ajaxResponse}}">
         </iron-ajax>
     </template>
 
     <script>
-        Polymer({
-            is: '',
-            properties: {
-            },
-            ready: function () {
+        //Polymer({
+        //    is: '',
+        //    properties: {
+        //    },
+        //    ready: function () {
 
-            },
+        //    },
 
-        });
+        //});
     </script>
 </dom-module>
