@@ -19,12 +19,12 @@ from login.views import *
 from django.contrib.auth import views as django_auth_views
 
 urlpatterns = [
-    url(r'^$', django_auth_views.login, {'SSL': True}),
-    url(r'^logout/$', logout_page, {'SSL': True}),
-    url(r'^accounts/login/$', django_auth_views.login, {'SSL': True}), # If user is not login it will redirect to login page
-    url(r'^register/$', register, {'SSL': True}),
-    url(r'^register/success/$', register_success, {'SSL': True}),
-    url(r'^home/$', home, {'SSL': True}),
-    url(r'^(?i)CoreActivityTracker/', include('CoreActivityTracker.urls'), {'SSL': True}),
-    url(r'^admin/', admin.site.urls, {'SSL': True}),
+    url(r'^$', django_auth_views.login),
+    url(r'^logout/$', logout_page),
+    url(r'^accounts/login/$', django_auth_views.login), # If user is not login it will redirect to login page
+    url(r'^register/$', register),
+    url(r'^register/success/$', register_success),
+    url(r'^home/$', home),
+    url(r'^(?i)CoreActivityTracker/', include('CoreActivityTracker.urls')),
+    url(r'^admin/', admin.site.urls),
 ]
