@@ -2,9 +2,11 @@
 
 <dom-module id="spoken-language-module">
     <template>
-        <template is="dom-repeat" id="spoken-language-template" items="[[ajaxResponse.items]]">
-            <span>{{item.english_name}}</span>
+        <span>Begin spoken languages</span>
+        <template is="dom-repeat" items="[[ajaxResponse.items]]">
+            <span>english_name: {{item.english_name}}</span>
         </template>
+        <span>End spoken languages</span>
 
         <iron-ajax
             url="api/v1/spokenlanguages/"
