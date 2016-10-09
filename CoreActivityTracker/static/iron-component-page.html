@@ -2,6 +2,11 @@
 
 <dom-module id="spoken-language-module">
     <template id="spoken-language-module-template">
+        <style>
+            :host {
+                display: inline-block;
+            }
+        </style>
         <iron-ajax
             auto
             url="api/v1/spokenlanguages/"
