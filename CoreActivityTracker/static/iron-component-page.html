@@ -2,12 +2,6 @@
 
 <dom-module id="spoken-language-module">
     <template is="dom-bind" id="spoken-language-module-template">
-        <span>Begin spoken languages</span>
-        <template is="dom-repeat" items="[[ajaxResponse.items]]">
-            <span>english_name: {{item.english_name}}</span>
-        </template>
-        <span>End spoken languages</span>
-
         <iron-ajax
             auto
             url="api/v1/spokenlanguages/"
@@ -15,6 +9,11 @@
             contentType="application/json"
             last-response="{{ajaxResponse}}">
         </iron-ajax>
+        <span>Begin spoken languages</span>
+        <template is="dom-repeat" items="[[ajaxResponse.items]]">
+            <span>english_name: {{item.english_name}}</span>
+        </template>
+        <span>End spoken languages</span>
     </template>
 
     <script>
@@ -22,10 +21,6 @@
             is: 'iron-component-page',
             properties: {
             },
-            ready: function () {
-
-            },
-
         });
     </script>
 </dom-module>
