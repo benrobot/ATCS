@@ -42,7 +42,7 @@ class DeclarationStatusName(models.Model):
 
 class Person(models.Model):
     first_name = models.CharField(max_length=35)
-    last_name  = models.CharField(max_length=35)
+    last_name = models.CharField(max_length=35)
     declaration_status_name = models.ForeignKey(
         DeclarationStatusName
     )
