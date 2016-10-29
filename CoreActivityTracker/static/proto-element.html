@@ -1,13 +1,48 @@
 <link rel="import"
       href="bower_components/polymer/polymer.html">
+<link rel="import" href="bower_components/iron-ajax/iron-ajax.html">
+
+<dom-module id="proto-element">
+    <template>
+        <template is="dom-bind">
+                <iron-ajax
+                    auto
+                    url="/CoreActivityTracker/api/v1/spokenlanguages/"
+                    handle-as="json"
+                    last-response="{{ajaxResponse}}"
+                    on-response="_reponseChecker"
+                    verbose="true"
+                    debounce-duration="300"></iron-ajax>
+                <div>
+                    <h3>BEN WUZ HERE</h3>
+                    <template is="dom-repeat" items="[[ajaxResponse.items]]">
+                      <div>
+                        <p>English name: [[item.english_name]]</p>
+                      </div>
+                    </template>
+                </div>
+        </template>
+    </template>
+</dom-module>
 
 <script>
-  // register a new element called proto-element
   Polymer({
     is: "proto-element",
-    // add a callback to the element's prototype
-    ready: function() {
-      this.textContent = "I'm a proto-element. Check out my prototype!"
+    properties: {
+        ajaxResponse: {
+            type: Array,
+            readOnly: false,
+            notify: true,
+            observer: '_whatIsGoingOn'
+        }
+    },
+    _whatIsGoingOn: function(newValue, oldValue) {
+        console.log('oldValue=', oldValue);
+        console.log('newValue=', newValue);
+    },
+    _reponseChecker: function (request) {
+    console.log(request.detail.response);
+    console.log(this.$.ajax.lastResponse);
     }
   });
 </script>

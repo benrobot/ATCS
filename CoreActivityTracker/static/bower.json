@@ -51,6 +51,7 @@
     "paper-styles": "^1.1.5",
     "paper-tabs": "^1.6.2",
     "paper-toggle-button": "^1.2.0",
-    "paper-ripple": "*"
+    "paper-ripple": "*",
+    "web-component-tester": "Polymer/web-component-tester#^5.0.0"
   }
 }

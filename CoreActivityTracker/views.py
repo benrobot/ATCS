@@ -30,8 +30,7 @@ def spoken_language_collection(request):
         serializer = SpokenLanguageSerializer(objects, many=True)
         return Response(serializer.data)
     elif request.method == 'POST':
-        data = {'text': request.DATA.get('the_spoken_language')}
-        serializer = SpokenLanguageSerializer(data=data)
+        serializer = SpokenLanguageSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
