@@ -10,12 +10,11 @@
                     url="/CoreActivityTracker/api/v1/spokenlanguages/"
                     handle-as="json"
                     last-response="{{ajaxResponse}}"
-                    on-response="_reponseChecker"
                     verbose="true"
                     debounce-duration="300"></iron-ajax>
                 <div>
                     <h3>BEN WUZ HERE</h3>
-                    <template is="dom-repeat" items="[[ajaxResponse.items]]">
+                    <template is="dom-repeat" items="[[ajaxResponse]]">
                       <div>
                         <p>English name: [[item.english_name]]</p>
                       </div>
@@ -23,26 +22,18 @@
                 </div>
         </template>
     </template>
-</dom-module>
 
-<script>
-  Polymer({
-    is: "proto-element",
-    properties: {
-        ajaxResponse: {
-            type: Array,
-            readOnly: false,
-            notify: true,
-            observer: '_whatIsGoingOn'
+    <script>
+      Polymer({
+        is: "proto-element",
+        properties: {
+            ajaxResponse: {
+                type: Array,
+                readOnly: false,
+                notify: true
+            }
         }
-    },
-    _whatIsGoingOn: function(newValue, oldValue) {
-        console.log('oldValue=', oldValue);
-        console.log('newValue=', newValue);
-    },
-    _reponseChecker: function (request) {
-    console.log(request.detail.response);
-    console.log(this.$.ajax.lastResponse);
-    }
-  });
-</script>
+      });
+    </script>
+
+</dom-module>
